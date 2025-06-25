@@ -68,7 +68,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Occupe toute la hauteur de l'écran */
+  /* Occupe toute la hauteur de l'écran */
   width: 100vw;      /* Occupe toute la largeur de l'écran */
   margin: 0;
   padding: 0 20px;
