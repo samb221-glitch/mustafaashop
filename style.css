@@ -61,18 +61,7 @@ footer {
   text-align: center;
   margin-top: 2rem;
 }
-.hero {
-  background-color: #0074D9; /* Bleu vif, tu peux changer la teinte */
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* Occupe toute la hauteur de l'écran */
-  width: 100vw;      /* Occupe toute la largeur de l'écran */
-  margin: 0;
-  padding: 0 20px;
-  box-sizing: border-box;
+.hero{
   text-align: center;
 }
 .remove-btn {
