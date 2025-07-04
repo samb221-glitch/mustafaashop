@@ -54,3 +54,38 @@ function displayCart() {
 if (document.getElementById('cart-items')) {
   displayCart();
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const receipt = document.getElementById('receipt');
+  const totalElement = document.getElementById('total');
+  const storedCart = localStorage.getItem('cart');
+  let total = 0;
+
+  if (storedCart) {
+    const cart = JSON.parse(storedCart);
+
+    const grouped = {};
+    cart.forEach(item => {
+      if (grouped[item.product]) {
+        grouped[item.product].quantity += 1;
+      } else {
+        grouped[item.product] = {
+          price: item.price,
+          quantity: 1
+        };
+      }
+    });
+
+    for (const [product, data] of Object.entries(grouped)) {
+      const li = document.createElement('li');
+      const subtotal = data.price * data.quantity;
+      li.textContent = `${product} x${data.quantity} — ${subtotal.toLocaleString()} FCFA`;
+      receipt.appendChild(li);
+      total += subtotal;
+    }
+
+    totalElement.textContent = `Total : ${total.toLocaleString()} FCFA`;
+    localStorage.removeItem('cart');
+  } else {
+    receipt.innerHTML = '<li>Votre panier était vide.</li>';
+  }
+});
