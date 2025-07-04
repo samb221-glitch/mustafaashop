@@ -54,6 +54,12 @@ function displayCart() {
 if (document.getElementById('cart-items')) {
   displayCart();
 }
+function clearCart() {
+  cart = [];
+  saveCart();
+  displayCart();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const receipt = document.getElementById('receipt');
   const totalElement = document.getElementById('total');
