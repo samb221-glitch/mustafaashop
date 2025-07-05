@@ -95,3 +95,22 @@ document.addEventListener('DOMContentLoaded', () => {
     receipt.innerHTML = '<li>Votre panier était vide.</li>';
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('request-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const jersey = document.getElementById('jersey').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const fullMessage = `Bonjour Mustafaa Shop, je m'appelle ${name} et je cherche le maillot suivant : ${jersey}. ${message ? 'Détails : ' + message : ''}`;
+      const encodedMessage = encodeURIComponent(fullMessage);
+      const whatsappURL = `https://wa.me/221785257421?text=${encodedMessage}`;
+
+      window.open(whatsappURL, '_blank');
+    });
+  }
+});
