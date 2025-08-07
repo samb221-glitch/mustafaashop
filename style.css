@@ -1,97 +1,62 @@
-/* Général */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   background: #f4f4f4;
   color: #333;
-  padding: 0;
 }
 
-/* Header */
 header {
   background: #003366;
   color: white;
   padding: 1rem;
   text-align: center;
   width: 100%;
-}
 
-header h1 {
-  margin: 0;
-  font-size: 2rem;
-}
 
-/* Navigation */
-nav {
-  background: #002244;
-  padding: 0.5rem;
-  text-align: center;
 }
 
 nav a {
   color: white;
   margin: 0 1rem;
   text-decoration: none;
-  font-weight: bold;
 }
-
 nav a:hover {
   text-decoration: underline;
   color: #ffcc00;
 }
 
-/* Contenu principal */
 main {
   padding: 2rem 1rem;
 }
 
-/* Grille de produits */
 .products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   animation: fadeIn 0.5s ease-in;
-}
 
+}
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Carte produit */
 .product {
   background: white;
   border: 1px solid #ccc;
   padding: 1rem;
-  border-radius: 10px;
+  width: 200px;
   text-align: center;
-  transition: all 0.3s ease;
-}
-
-.product:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transform: scale(1.02);
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 .product img {
   width: 100%;
   height: auto;
-  border-radius: 5px;
 }
 
-.product h3 {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-}
-
-.product p {
-  font-weight: bold;
-  margin: 0.5rem 0;
-}
-
-/* Boutons */
-button,
-.pay-button {
+button, .pay-button {
   background: #28a745;
   color: white;
   padding: 0.5rem 1rem;
@@ -99,14 +64,22 @@ button,
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: inline-block;
   text-decoration: none;
+}
+
+footer {
+  background: #003366;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 2rem;
   width: 100%;
 }
 
-button:hover {
-  background: #218838;
+.hero{
+  text-align: center;
 }
-
 .remove-btn {
   margin-left: 10px;
   color: white;
@@ -116,40 +89,21 @@ button:hover {
   padding: 3px 10px;
   cursor: pointer;
 }
-
-/* Formulaire de demande personnalisée */
-.custom-request {
-  margin-top: 2rem;
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
+.product:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
 }
+@media (max-width: 600px) {
+  .product {
+    width: 100%;
+  }
 
-.custom-request h3 {
-  margin-top: 0;
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
 }
-
-.custom-request form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.custom-request input,
-.custom-request textarea {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.custom-request button a {
-  color: white;
-  text-decoration: none;
-  display: block;
-}
-
-/* Panier */
 #cart-items {
   list-style: none;
   padding: 0;
@@ -163,38 +117,4 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-/* Footer */
-footer {
-  background: #003366;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  margin-top: 2rem;
-  width: 100%;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.5rem;
-  }
-
-  nav a {
-    display: block;
-    margin: 0.5rem 0;
-  }
-
-  main {
-    padding: 1rem;
-  }
-
-  button {
-    width: 100%;
-  }
-
-  .custom-request form {
-    flex-direction: column;
-  }
 }
